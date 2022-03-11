@@ -5,7 +5,7 @@ export const fetchCartData = () => {
   return async (dispatch) => {
     const fetchRequest = async () => {
       const response = await fetch(
-        "https://cart-app-448d8-default-rtdb.firebaseio.com/cart.json"
+        `${process.env.REACT_APP_FIREBASE_DOMAIN}/cart.json`
       );
       if (!response.ok) {
         throw new Error("Fetching failed!");
@@ -47,7 +47,7 @@ export const sendCartData = (cart) => {
 
     const sendRequest = async () => {
       const response = await fetch(
-        "https://cart-app-448d8-default-rtdb.firebaseio.com/cart.json",
+        `${process.env.REACT_APP_FIREBASE_DOMAIN}/cart.json`,
         {
           method: "PUT",
           body: JSON.stringify({
